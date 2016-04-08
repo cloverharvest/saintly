@@ -1,0 +1,27 @@
+Saints Builder
+
+I am a fourth grader at St. Dominic's.
+I would like to know and study about saints.
+Teacher says it is good to study their lives, be inspired by them and follow them as a good example.
+
+I want to be able to show a collection of my favorite saints.
+Each saint would show a picture.
+What their name is.
+Patron saint of what or who.
+Feast day.
+Their birthplace.
+Brief life story.
+
+I would also like to pull up a saint individually.
+
+I would like to add more saints to it as I learn about each of them.
+
+I would like to update or edit their information too.
+
+I would like to be able to delete duplicate saint entries.
+
+USER STORY(STRETCH):
+
+In the future, I would like to be able to share with my classmates.
+
+They can add a saint if it is still not in the builder.

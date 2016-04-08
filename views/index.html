@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>tunely</title>
+
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
+
+    <!-- VENDOR SCRIPTS -->
+    <script src="vendor/jQuery/dist/jquery.min.js"></script>
+    <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="vendor/handlebars/handlebars.min.js"></script>
+
+    <!-- APPLICATION SCRIPTS -->
+    <script src="scripts/app.js"></script>
+  </head>
+  <body>
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Welcome to Saintly</h1>
+        <p>Your Saints Builder!</p>
+      </div>
+    </div>
+
+    <section class="container">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <h2>Saints</h2>
+        </div>
+      </div>
+      <!-- saints! -->
+      <div id='saints'>
+
+
+
+
+          <!-- one saint -->
+          <div class="row album">
+
+            <div class="col-md-10 col-md-offset-1">
+              <div class="panel panel-default">
+                <div class="panel-body">
+
+
+                <!-- begin saint internal row -->
+                  <div class='row'>
+                    <div class="col-md-3 col-xs-12 thumbnail album-art">
+                      <img src="images/800x800.png" alt="saint image">
+                    </div>
+
+                    <div class="col-md-9 col-xs-12">
+                      <ul class="list-group">
+                        <li class="list-group-item">
+                          <h4 class='inline-header'>Saint Name:</h4>
+                          <span class='saint-name'>Jude Thaddaeus</span>
+                        </li>
+
+                        <li class="list-group-item">
+                          <h4 class='inline-header'>Patron Saint of:</h4>
+                          <span class='patron-name'>Impossible cases</span>
+                        </li>
+
+                        <li class="list-group-item">
+                          <h4 class='inline-header'>Feast:</h4>
+                          <span class='saint-feastDate'>October 28</span>
+                        </li>
+
+                        <li class="list-group-item">
+                          <h4 class='inline-header'>Birthplace:</h4>
+                          <span class='birthplace-name'>Jerusalem</span>
+                        </li>
+
+                        <li class="list-group-item">
+                          <h4 class='inline-header'>Fun Fact:</h4>
+                          <span class='funfact-details'>St. Jude Thaddeus is very
+                            popular in the Philippines. A hospital in Tennessee
+                            is named afte him. He has been mistaken for Judas Iscariot,
+                            who betrayed Jesus. Jude Thaddeus is actually a cousin of
+                            Jesus according to biblical scholars. </span>
+                        </li>
+
+                        <li class="list-group-item">
+                          <h4 class='inline-header'>Dedicated Churches</h4>
+                          <span class='dedicatedchurch-list'> Shrine of St. Jude
+                            Thaddeus Catholic Church, Albuquerque, NM,
+                            http://www.stjudenm.org/</span> <!--
+                        </li>
+
+
+                      </ul>
+                    </div>
+
+                  </div>
+                  <!-- end of saint internal row -->
+
+                  <div class='panel-footer'>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end one saint -->
+
+
+
+
+      </div>
+    </section>
+
+    <!-- begin dedicatedChurchModal: this is not visible until you call .modal() on it -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="songModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Create Song</h4>
+          </div>
+          <div class="modal-body">
+
+            <fieldset class='form-horizontal'>
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="songName">Song Name</label>
+                <div class="col-md-4">
+                  <input id="songName" name="songName" type="text" placeholder="" class="form-control input-md" required="">
+                </div>
+              </div>
+
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="trackNumber">Track Number</label>
+                <div class="col-md-4">
+                  <input id="trackNumber" name="trackNumber" type="text" placeholder="" class="form-control input-md">
+                </div>
+              </div>
+            </fieldset>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="saveSong">Save changes</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+
+  </body>
+</html>
