@@ -39,11 +39,15 @@ sampleSaints.push({
 
 $(document).ready(function() {
   console.log('app.js loaded!');
+  renderSaint(sampleSaints[0]);
 });
 
 
 /* this function takes a single saint and renders it to the page */
-function renderSaint(album) {
-  console.log('rendering album:', album);
-
+function renderSaint(saint) {
+  console.log('rendering one saint:', saint);
+  var saintHtml = $('#saint-template').html();
+  var saintsTemplate = Handlebars.compile(saintHtml);
+  var html = saintsTemplate(saint);
+  $('#saints').append(html);
 }
