@@ -10,7 +10,7 @@ var bodyParser = require('body-parser');
 // serve static files from public folder
 app.use(express.static(__dirname + '/public'));
 
-//configure body parser for receiving form data
+//serves static files from public folder and configure body parser for receiving form data
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
@@ -39,8 +39,12 @@ app.get('/', function homepage (req, res) {
 
 app.get('/api', controllers.api.index);
 
-//new route for /api/saints
+//route for GET /api/saints
 app.get('/api/saints', controllers.saints.index);
+
+//route for POST /api/albums
+app.post('/api/saints', controllers.saints.create);
+
 
 /**********
  * SERVER *

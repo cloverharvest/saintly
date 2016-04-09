@@ -31,7 +31,7 @@
         <p>Your Saints Builder!</p>
       </div>
     </div>
-<!-- XXX:  -->
+
 
 <!-- BEGIN ADD SAINT FORM -->
 
@@ -58,7 +58,7 @@
             <div class="form-group">
               <label class="col-md-4 control-label" for="artistName">Patron Saint of:</label>
               <div class="col-md-4">
-              <input id="textinput" name="patronSaintOf" type="text" placeholder="Animals, Merchants and Ecology" class="form-control input-md" required="">
+              <input id="textinput" name="patronSaintOf" type="text" placeholder="Animals, Merchants and Ecology" class="form-control input-md">
 
               </div>
             </div>
@@ -67,7 +67,7 @@
             <div class="form-group">
               <label class="col-md-4 control-label" for="releaseDate">Feast:</label>
               <div class="col-md-4">
-              <input id="feastDateId" name="feastDate" type="text" placeholder="October 4" class="form-control input-md" required="">
+              <input id="feastDateId" name="feastDate" type="text" placeholder="October 4" class="form-control input-md">
               </div>
             </div>
 
@@ -75,7 +75,7 @@
             <div class="form-group">
               <label class="col-md-4 control-label" for="birthplace">Birthplace:</label>
               <div class="col-md-4">
-                <input id="birthplaceId" name="birthplace" type="text" placeholder="Assisi, Italy" required="">
+                <input id="birthplaceId" name="birthplace" type="text" placeholder="Assisi, Italy">
               </div>
             </div>
 
@@ -83,15 +83,15 @@
             <div class="form-group">
               <label class="col-md-4 control-label" for="funFact">Fun Fact:</label>
               <div class="col-md-4">
-              <input id="funFactId" name="funFact" type="text" placeholder="" class="form-control input-md" required="">
+              <input id="funFactId" name="funFact" type="text" placeholder="" class="form-control input-md">
               </div>
             </div>
 
             <!-- Textarea -->
             <div class="form-group">
-              <label class="col-md-4 control-label" for="genres">Dedicated Churches:</label>
+              <label class="col-md-4 control-label" for="churches">Dedicated Churches:</label>
               <div class="col-md-4">
-                <textarea class="form-control" id="dedicatedChurches" type="text" placeholder="St. Francis of Assisi Church; San Jose,CA; http://www.sfoasj.com" name="dedicatedChurches" required=""></textarea>
+                <textarea class="form-control" id="dedicatedChurches" type="text" placeholder="St. Francis of Assisi Church; San Jose,CA; http://www.sfoasj.com" name="dedicatedChurches"></textarea>
               </div>
             </div>
 
@@ -121,7 +121,7 @@
          <!--handlebars template for one saint starts here -->
          <script id='saint-template' type='text/x-handlebars-template'>
           <!-- one saint -->
-          <div class="row album">
+          <div class="row saint">
 
             <div class="col-md-10 col-md-offset-1">
               <div class="panel panel-default">
@@ -130,7 +130,7 @@
 
                 <!-- begin saint internal row -->
                   <div class='row'>
-                    <div class="col-md-3 col-xs-12 thumbnail album-art">
+                    <div class="col-md-3 col-xs-12 thumbnail saint-art">
                       <img src="{{imageUrl}}" alt="saint image">
                     </div>
 
@@ -163,19 +163,17 @@
 
                         <li class="list-group-item">
                           <h4 class='inline-header'>Dedicated Churches:</h4>
-                          <span class='dedicated-churches'>
+                          <span class='dedicatedchurches'>
                             <ul>
                             {{#each dedicatedChurches}}
                                <li>{{name}}</li>
                                <li>{{location}}</li>
                                <li><a href="{{url}}">{{url}}</a></li>
                             {{/each}}
+                           </ul>
+                         </span>
+                       </li>
 
-
-                          </ul>
-                          </span>
-                        </li>
-                      </ul>
                     </div>
 
                   </div>
@@ -195,5 +193,56 @@
 
       </div>
     </section>
+
+    <!-- begin churchModal: this is not visible until you call .modal() on it -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="churchModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Create Church</h4>
+          </div>
+          <div class="modal-body">
+
+            <fieldset class='form-horizontal'>
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="churchName">Name</label>
+                <div class="col-md-4">
+                  <input id="churchName" name="churchName" type="text" placeholder="" class="form-control input-md" required="">
+                </div>
+              </div>
+
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="location">Location</label>
+                <div class="col-md-4">
+                  <input id="location" name="locationName" type="text" placeholder="" class="form-control input-md">
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="location">Web Site</label>
+              <div class="col-md-4">
+                <input id="url" name="urlName" type="text" placeholder="" class="form-control input-md">
+              </div>
+            </div>
+          </fieldset>
+
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="saveChurch">Save changes</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+
+  </body>
+</html>
 </body>
 </html>

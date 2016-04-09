@@ -46,15 +46,25 @@ function index(req, res) {
     if(err) {
       return console.log("index error: ", err);
     }
-    
-    console.log("i've deleted the hardcoded data and trying to send you json from the server back");
+    console.log("i've deleted the hardcoded data and am sending you that" +
+    "json data from the server back");
     res.json(saints);
-
   });
 }
 
+//POST /api/saints, from form submitted
 function create(req, res) {
-  // FILL ME IN !
+  console.log('body', req.body);
+
+// this splits at semicolon and removes trailing space??
+  // var dedicatedchurches = req.body.dedicatedChurches.split(',').map(function(item) { return item.trim(); } );
+  // req.body.dedicatedChurches = dedicatedchurches;
+
+  db.Saint.create(req.body, function(err, saint) {
+    if (err) { console.log("create error: ", err); }
+    console.log(saint);
+    res.json(saint);
+  });
 }
 
 function show(req, res) {
