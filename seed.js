@@ -27,7 +27,7 @@ var db = require("./models");
 //               patronSaintOf: "Astronomers and Hopeful Mothers",
 //               feastDate: "August 8",
 //               birthplace: "Calaruega, Spain",
-//               funFact: "Founder of the Order of Preachers. The spread of the Rosary is attribute to St. Dominic.",
+//               funFact: "Founder of the Order of Preachers. The spread of the Rosary is attributed to St. Dominic.",
 //               imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/24/The_Perugia_Altarpiece,_Side_Panel_Depicting_St._Dominic.jpg",
 //               dedicatedChurches : {
 //                 name: "St. Dominic Parish",

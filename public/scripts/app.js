@@ -39,14 +39,21 @@
 
 $(document).ready(function() {
   console.log('app.js loaded!');
-  //ajax call to get the hardcoded-albums in albumsController.js
+  //ajax call to get the hardcoded-saints in albumsController.js
   $.get('/api/saints').success(function (saints) {
     saints.forEach(function(saint) {
     console.log("saint", saint);
       renderSaint(saint);
     });
   });
-
+  /*this listens for a form submission and then
+  serializes all input from the ADD SAINT and its DETAILS form */
+  $('#saint-form form').on('submit', function(evt) {
+      evt.preventDefault();
+      var saintFormData = $(this).serialize();
+      console.log('formData', saintFormData);
+      $(this).trigger("reset");
+    });
 });
 
 
