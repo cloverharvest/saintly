@@ -86,9 +86,11 @@
                         <li class="list-group-item">
                           <h4 class='inline-header'>Dedicated Churches</h4>
                           <span class='dedicated-churches'>
-                            {{#each saint.dedicatedChurches}}
-                               
+                            <ul>
+                            {{#each dedicatedChurches}}
+                               <li>{{this}}</li>
                             {{/each}}
+                          </ul>
                           </span>
                         </li>
                       </ul>
