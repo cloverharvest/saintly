@@ -42,10 +42,11 @@ $(document).ready(function() {
   //ajax call to get the hardcoded-albums in albumsController.js
   $.get('/api/saints').success(function (saints) {
     saints.forEach(function(saint) {
+    console.log("saint", saint);
       renderSaint(saint);
     });
   });
-  
+
 });
 
 
