@@ -1,7 +1,7 @@
 /************
  * DATABASE *
  ************/
-var db = require('../models');
+
 
 /* hard-coded data */
 // var saints = [];
@@ -38,6 +38,7 @@ var db = require('../models');
 //               }
 //             });
 
+var db = require('../models');
 
 // GET /api/saints, get all saints from the saintsController var saints
 function index(req, res) {
@@ -45,7 +46,8 @@ function index(req, res) {
     if(err) {
       return console.log("index error: ", err);
     }
-    console.log("i'm trying to send you some json back");
+    
+    console.log("i've deleted the hardcoded data and trying to send you json from the server back");
     res.json(saints);
 
   });
