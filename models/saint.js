@@ -1,6 +1,7 @@
 //models/saints.js
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
+
 var DedicatedChurch = require('./dedicatedchurch');
 
 var SaintSchema = new Schema ({

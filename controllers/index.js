@@ -1,2 +1,2 @@
-//module.exports.api = require('./apiController');
-//module.exports.albums = require('./saintsController');
+module.exports.api = require('./apiController');
+module.exports.saints = require('./saintsController');
