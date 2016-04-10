@@ -1,12 +1,27 @@
+var db = require('../models');
+
 // POST '/api/saints/:saintId/churches', to create a new dedicated church   via popup modal
 function create(req, res) {
+  // extract the new church data from req and make a dedicatedChurch object out of it.
+  var newDedicatedChurch = new db.DedicatedChurch({
+    name: req.body.name,
+    location: req.body.location,
+    url: req.body.url
+  });
+
+  // find the saint in your db where we will  put the new church
   db.Saint.findById(req.params.saintId, function(err, foundSaint) {
-    console.log(req.body);
-    var newDedicatedChurch = new db.DedicatedChurch(req.body); //teacher's notes
+    // TODO: err handling
+
+    //console.log(foundSaint);
+
+    //push the new church into the saint's dedicatedChurches array
     foundSaint.dedicatedChurches.push(newDedicatedChurch);
+    // save the saint since we changed it.
     foundSaint.save(function(err, savedSaint) {
-      console.log('newDedicatedChurch created: ', newDedicatedChurch);
-      res.json(newDedicatedChurch); //responding with church(but if you have an api per tg, some may respond with parent object Saint);
+      console.log('newDedicatedChurch created: ', savedSaint.dedicatedChurches);
+      // send our newly changed saint back to the front end :)
+      res.json(foundSaint);
     });
   });
 }

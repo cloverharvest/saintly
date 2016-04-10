@@ -64,7 +64,7 @@
 
             <!-- Text input-->
             <div class="form-group">
-              <label class="col-md-4 control-label" for="artistName">Patron Saint of:</label>
+              <label class="col-md-4 control-label" name="patronSaint">Patron Saint of:</label>
               <div class="col-md-4">
               <input id="textinput" name="patronSaintOf" type="text" placeholder="Animals, Merchants and Ecology" class="form-control input-md">
 
@@ -73,7 +73,7 @@
 
             <!-- Text input-->
             <div class="form-group">
-              <label class="col-md-4 control-label" for="releaseDate">Feast:</label>
+              <label class="col-md-4 control-label" name="feastDate">Feast:</label>
               <div class="col-md-4">
               <input id="feastDateId" name="feastDate" type="text" placeholder="October 4" class="form-control input-md">
               </div>
@@ -81,7 +81,7 @@
 
             <!-- Text input -->
             <div class="form-group">
-              <label class="col-md-4 control-label" for="birthplace">Birthplace:</label>
+              <label class="col-md-4 control-label" name="birthPlace">Birthplace:</label>
               <div class="col-md-4">
                 <input id="birthplaceId" name="birthplace" type="text" placeholder="   Assisi, Italy">
               </div>
@@ -89,17 +89,33 @@
 
             <!-- Text input-->
             <div class="form-group">
-              <label class="col-md-4 control-label" for="funFact">Fun Fact:</label>
+              <label class="col-md-4 control-label" name="funFact">Fun Fact:</label>
               <div class="col-md-4">
               <input id="funFactId" name="funFact" type="text" placeholder="" class="form-control input-md">
               </div>
             </div>
 
-            <!-- Textarea -->
+            <!-- DedicatedChurch Name-->
             <div class="form-group">
-              <label class="col-md-4 control-label" for="churches">Dedicated Churches:</label>
+              <label class="col-md-4 control-label" name="dChurchName">Church Name:</label>
               <div class="col-md-4">
-                <textarea class="form-control" id="dedicatedChurches" type="text" placeholder="St. Francis of Assisi Church; San Jose,CA; http://www.sfoasj.com" name="dedicatedChurches">[must enter an array]</textarea>
+              <input id="dChurchId" name="dChurchName" type="text" placeholder="" class="form-control input-md">
+              </div>
+            </div>
+
+            <!-- DedicatedChurch Location-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" name="dChurchLocation">Church Location:</label>
+              <div class="col-md-4">
+              <input id="dChurchLocationId" name="dChurchLocation" type="text" placeholder="" class="form-control input-md">
+              </div>
+            </div>
+
+            <!-- DedicatedChurch Url-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" name="dChurchUrl">Church Url:</label>
+              <div class="col-md-4">
+              <input id="dChurchUrlId" name="dChurchUrl" type="text" placeholder="" class="form-control input-md">
               </div>
             </div>
 

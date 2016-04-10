@@ -54,18 +54,42 @@ function index(req, res) {
 
 //POST /api/saints, data from form submitted
 function create(req, res) {
-  console.log('body', req.body);
+  // console.log('body', req.body);
 
-//this splits at semicolon and removes trailing space??
-  // var dedicatedchurches = req.body.dedicatedChurches.split(',').map(function(item) { return item.trim(); } );
-  // console.log("line 61: ", dedicatedchurches);//this is showing as the way i entered in input in create error message
-  // req.body.dedicatedChurches = dedicatedchurches;
+  /* make a quick saint object before putting it into our create db call */
+  var newSaint = {
+    name: req.body.name,
+    patronSaintOf: req.body.patronSaint,
+    feastDate: req.body.feastDate,
+    birthplace: req.body.birthPlace,
+    funFact: req.body.funFact,
+    imageUrl: req.body.imageUrl,
+  }
 
-  db.Saint.create(req.body, function(err, saint) {
-    console.log("saintsController line 64: i'm trying to send you a new saint from the database");
+  /* make a dedicated Church object from the data we got from ajax */
+  var newSaintChurch = new db.DedicatedChurch({
+    name : req.body.dChurchName,
+    location: req.body.dChurchLocation,
+    url: req.body.dChurchUrl
+  });
+
+  /* call db.Saint.create and pass in the newSaint object we just made */
+  db.Saint.create(newSaint, function(err, saint) {
     if (err) { console.log("create error: ", err); }
-    console.log("line 66", saint); //with the error, this is showing as undefined
-    res.json(saint);
+    //console.log("Sucess!!!!", saint);
+
+    /* If we succeeded, then we push the dedicated church object into our new saint's dedicatedChurch array */
+    saint.dedicatedChurches.push(newSaintChurch);
+
+    /* Since we have changed our new Saint by adding a dedicatedChurch object to their array of dedicatedChurches, we need to save the newSaint. */
+    saint.save(function(err, success) {
+      if (err) { console.log("create error: ", err); }
+      //console.log('SUCCESSSS!!!', success);
+
+      /* Everything is sainly, we can now send our new saint back to the front end */
+      res.json(success);
+
+    })
   });
 }
 

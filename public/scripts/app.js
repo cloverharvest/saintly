@@ -100,31 +100,35 @@ function handleNewChurchSubmit(evt) {
     location: $locationField.val(),
     url: $urlField.val()
   };
-
+  console.log('DATA TO POST: ' , dataToPost);
   //get saintID to build the correct URL for the AJAX POST
   var saintId = $modal.data('saintId');
-  console.log('retrieved churchName:', name, ' and location:', location, ' and url:', url, ' for saint w/ id:', saintId);
+  //console.log('retrieved churchName:', name, ' and location:', location, ' and url:', url, ' for saint w/ id:', saintId);
 
   //post to server
   var churchPostToServerUrl = '/api/saints/'+ saintId + '/churches';
-  $.post(churchPostToServerUrl), dataToPost, function(data) {
-    console.log('received data from post to /churches:', data);
-    //clear form
-    $churchNameField.val('');
-    $locationField.val('');
-    $urlField.val('');
-
-    //close the modal
-    $modal.modal('hide');
-    // update the correct saint to show the new church
-    $.get('/api/saints/' + saintId, function(data) {
-      //remove the current instance of the saint from the page
-      ('[data-saint-id=' + saintId + ']').remove();
-      //re-render it with the new saint data (including churches)
-      renderSaint(data);
-      // console.log("log the results pending server setup:", data);//this is pending testing, remove once it works
-    });
+  console.log(churchPostToServerUrl);
+  $.post(churchPostToServerUrl), dataToPost, onSuccessPostNewChurch
     // $.error(function(err) {//resolve this..s3s5
     // console.log('post to /api/saints/:saintId/churches resulted in error', error);
   };
+
+  function onSuccessPostNewChurch(data) {
+    console.log('received data from post to /churches:', data);
+    //clear form
+    // $churchNameField.val('');
+    // $locationField.val('');
+    // $urlField.val('');
+    //
+    // //close the modal
+    // $modal.modal('hide');
+    // // update the correct saint to show the new church
+    // $.get('/api/saints/' + saintId, function(data) {
+    //   //remove the current instance of the saint from the page
+    //   ('[data-saint-id=' + saintId + ']').remove();
+    //   //re-render it with the new saint data (including churches)
+    //   renderSaint(data);
+    //   // console.log("log the results pending server setup:", data);//this is pending testing, remove once it works
+    // });
+
 }
