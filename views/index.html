@@ -39,11 +39,19 @@
       <div class="row">
       <div class="col-md-10 col-md-offset-1">
 
-        <form class="form-horizontal">
+        <form class="form-horizontal" method="POST">
           <fieldset>
 
             <!-- Form Name -->
             <legend>Add New Saint</legend>
+
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="imageUrl">Image Url:</label>
+              <div class="col-md-4">
+              <input id="imageUrl" name="imageUrl" type="text" placeholder="http://www.image.com" class="form-control input-md">
+              </div>
+            </div>
 
             <!-- Text input-->
             <div class="form-group">
@@ -84,14 +92,6 @@
               <label class="col-md-4 control-label" for="funFact">Fun Fact:</label>
               <div class="col-md-4">
               <input id="funFactId" name="funFact" type="text" placeholder="" class="form-control input-md">
-              </div>
-            </div>
-
-            <!-- Textarea -->
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="churches">Dedicated Churches:</label>
-              <div class="col-md-4">
-                <textarea class="form-control" id="dedicatedChurches" type="text" placeholder="St. Francis of Assisi Church; San Jose,CA; http://www.sfoasj.com" name="dedicatedChurches"></textarea>
               </div>
             </div>
 
