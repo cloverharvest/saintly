@@ -61,7 +61,7 @@ $(document).ready(function() {
       $(this).trigger("reset");
     });
 
-    // xxxxxxx;
+    
 });
 
 /* this function takes a single saint and renders it to the page */

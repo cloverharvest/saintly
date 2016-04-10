@@ -46,8 +46,8 @@ function index(req, res) {
     if(err) {
       return console.log("index error: ", err);
     }
-    console.log("i've deleted the hardcoded data and am sending you that" +
-    "json data from the server back");
+    console.log("i've deleted the hardcoded data and am sending you all saints" +
+    "from the database back");
     res.json(saints);
   });
 }
@@ -61,6 +61,7 @@ function create(req, res) {
   // req.body.dedicatedChurches = dedicatedchurches;
 
   db.Saint.create(req.body, function(err, saint) {
+    console.log("i'm sending you a new saint from the database");
     if (err) { console.log("create error: ", err); }
     console.log(saint);
     res.json(saint);

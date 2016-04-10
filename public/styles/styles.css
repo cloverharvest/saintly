@@ -1,3 +1,7 @@
+body {
+  background-color: #ddc98f;
+}
+
 .jumbotron {
   background-image: url(/images/background.jpg);
   background-size: cover;
