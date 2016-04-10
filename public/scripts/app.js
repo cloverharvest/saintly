@@ -66,7 +66,7 @@ $(document).ready(function() {
       console.log("add-church button has been clicked");
 
       var currentSaintId = $(this).closest('.saint').data('saint-id');//uniqued id for each saint NOT song
-      console.log('id',currentSaintId);
+      console.log('id', currentSaintId);
       //"use this to keep track of which album the modal is referring to at any time"
       $('#churchModal').data('saint-id', currentSaintId);
       $('#churchModal').modal();  // display the modal!
@@ -86,7 +86,7 @@ function renderSaint(saint) {
 
 //call this when the button on the modal is clicked
 //handle new church submit
-function handleNewSongSubmit(evt) {
+function handleNewChurchSubmit(evt) {
   evt.preventDefault();
   //define variables
   var $modal = $('#churchModal');
@@ -103,7 +103,7 @@ function handleNewSongSubmit(evt) {
 
   //get saintID to build the correct URL for the AJAX POST
   var saintId = $modal.data('saintId');
-  console.log('retrieved churchName:', name, ' and location:', location, ' and url:', url, ' for saint w/ id:', url);
+  console.log('retrieved churchName:', name, ' and location:', location, ' and url:', url, ' for saint w/ id:', saintId);
 
   //post to server
   var churchPostToServerUrl = '/api/saints/'+ saintId + '/churches';
@@ -122,9 +122,9 @@ function handleNewSongSubmit(evt) {
       ('[data-saint-id=' + saintId + ']').remove();
       //re-render it with the new saint data (including churches)
       renderSaint(data);
-      console.log("log the results pending server setup:", data);//this is pending testing, remove once it works
+      // console.log("log the results pending server setup:", data);//this is pending testing, remove once it works
     });
-  }).error(function(err) {
-    console.log('post to /api/saints/:saintId/churches resulted in error', error);
-});
+    // $.error(function(err) {//resolve this..s3s5
+    // console.log('post to /api/saints/:saintId/churches resulted in error', error);
+  };
 }

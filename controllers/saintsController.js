@@ -56,10 +56,10 @@ function index(req, res) {
 function create(req, res) {
   console.log('body', req.body);
 
-// this splits at semicolon and removes trailing space??
-  var dedicatedchurches = req.body.dedicatedChurches.split(',').map(function(item) { return item.trim(); } );
-  console.log("line 61: ", dedicatedchurches);//this is showing as the way i entered in input in create error message
-  req.body.dedicatedChurches = dedicatedchurches;
+//this splits at semicolon and removes trailing space??
+  // var dedicatedchurches = req.body.dedicatedChurches.split(',').map(function(item) { return item.trim(); } );
+  // console.log("line 61: ", dedicatedchurches);//this is showing as the way i entered in input in create error message
+  // req.body.dedicatedChurches = dedicatedchurches;
 
   db.Saint.create(req.body, function(err, saint) {
     console.log("saintsController line 64: i'm trying to send you a new saint from the database");
