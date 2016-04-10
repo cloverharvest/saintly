@@ -39,8 +39,8 @@ saintsList.push({
 
 var sampleChurches = [];
 
-sampleChurches.push({ name: "St. Mary Magdalen   Church",
-                      location: "Camarillo, CA",
+sampleChurches.push({ name: "St. Mary Magdalen Church",
+                      location: "Camarillo, CA", 
                       url: "http://www.smmcam.org/"
 });
 sampleChurches.push({ name: "Church of St. Mary Magdalene",
@@ -51,7 +51,7 @@ sampleChurches.push({ name: "Church of St. Mary Magdalene",
 
 // populate each Saint's church list
 saintsList.forEach(function(saint) {
-  saint.churches = sampleChurches;
+  saint.dedicatedChurches = sampleChurches;
 });
 
 db.Saint.remove({}, function(err, saints){

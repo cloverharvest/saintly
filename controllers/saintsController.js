@@ -40,7 +40,7 @@
 
 var db = require('../models');
 
-// GET /api/saints, get all saints from the saintsController var saints
+// GET /api/saints, get all saints from db
 function index(req, res) {
   db.Saint.find({}, function (err, saints) {
     if(err) {
@@ -52,18 +52,19 @@ function index(req, res) {
   });
 }
 
-//POST /api/saints, from form submitted
+//POST /api/saints, data from form submitted
 function create(req, res) {
   console.log('body', req.body);
 
 // this splits at semicolon and removes trailing space??
-  // var dedicatedchurches = req.body.dedicatedChurches.split(',').map(function(item) { return item.trim(); } );
-  // req.body.dedicatedChurches = dedicatedchurches;
+  var dedicatedchurches = req.body.dedicatedChurches.split(',').map(function(item) { return item.trim(); } );
+  console.log("line 61: ", dedicatedchurches);//this is showing as the way i entered in input in create error message
+  req.body.dedicatedChurches = dedicatedchurches;
 
   db.Saint.create(req.body, function(err, saint) {
-    console.log("i'm sending you a new saint from the database");
+    console.log("saintsController line 64: i'm trying to send you a new saint from the database");
     if (err) { console.log("create error: ", err); }
-    console.log(saint);
+    console.log("line 66", saint); //with the error, this is showing as undefined
     res.json(saint);
   });
 }
