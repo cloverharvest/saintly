@@ -55,13 +55,22 @@ $(document).ready(function() {
       console.log('this is serialized', formData);
 
       $.post('/api/saints', formData, function(saint) {
-        console.log('saints after POST', saint);
+        console.log('saint after POST', saint);
         renderSaint(saint);
       });
       $(this).trigger("reset");
     });
 
-    
+  //catches and handles the click event on a button that will add one church
+    $('#saints').on('click', '.add-church', function(evt) {
+      console.log("add-church button has been clicked");
+
+      var currentSaintId = $(this).closest('.saint').data('saint-id');//uniqued id for each saint NOT song
+      console.log('id',currentSaintId);
+      //"use this to keep track of which album the modal is referring to at any time"
+      $('#churchModal').data('saint-id', currentSaintId);
+      $('#churchModal').modal();  // display the modal!
+    });
 });
 
 /* this function takes a single saint and renders it to the page */
