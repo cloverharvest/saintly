@@ -46,8 +46,8 @@ function index(req, res) {
     if(err) {
       return console.log("index error: ", err);
     }
-    console.log("i've deleted the hardcoded data and am sending you all saints" +
-    "from the database back");
+    console.log("I'm sending you all the saints " +
+    "from the database");
     res.json(saints);
   });
 }
