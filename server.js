@@ -7,6 +7,8 @@ var app = express();
 
 var bodyParser = require('body-parser');
 
+app.listen(process.env.PORT || 3000);
+
 // serve static files from public folder
 app.use(express.static(__dirname + '/public'));
 
