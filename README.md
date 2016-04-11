@@ -31,7 +31,7 @@ Link to heroku: https://rocky-fortress-73738.herokuapp.com/
 
 ## Screenshot(s)
 
-![alt tag](https://github.com/cloverharvest/saintly/matser/publicimages/user.txt "User Story")
+![alt tag](https://github.com/cloverharvest/saintly/master/publicimages/user.txt "User Story")
 
 
 
