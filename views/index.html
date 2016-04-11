@@ -189,13 +189,15 @@
                         <li class="list-group-item">
                           <h4 class='inline-header'>Dedicated Churches:</h4>
                           <span class='dedicatedchurches'>
-                            <ul>
+
                             {{#each dedicatedChurches}}
-                               <li>{{name}}</li>
-                               <li>{{location}}</li>
-                               <li><a href="{{url}}">{{url}}</a></li>
+                            <h4>{{name}}</h4>
+                            <ul>
+                              <li>{{location}}</li>
+                              <li><a href="{{url}}">{{url}}</a></li>
+                            </ul>
                             {{/each}}
-                           </ul>
+
                          </span>
                        </li>
 
@@ -206,6 +208,7 @@
 
                   <div class='panel-footer'>
                     <button class='btn btn-primary add-church'>Add Church</button>
+                    <button class='btn btn-danger delete-saint'>Delete Saint</button>
                   </div>
 
                 </div>

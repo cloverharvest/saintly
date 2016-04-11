@@ -99,9 +99,16 @@ function show(req, res) {
   // FILL ME IN !
 }
 
-//
+//DELETE a saint in the database
 function destroy(req, res) {
-  //FILL ME in !
+  //database remove saint by ID
+  db.Saint.findOneAndRemove({ _id: req.params.saintId }, function(err, foundSaint){
+    if (err) {
+      console.log('create error: ', err);
+    }
+  
+    res.json(foundSaint);
+  });
 }
 
 function update(req, res) {

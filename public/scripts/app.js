@@ -44,6 +44,9 @@ $(document).ready(function() {
     });
     //save church modal save button
     $('#saveChurch').on('click', handleNewChurchSubmit);
+    //delete a saint
+    $('#saints').on('click', '.delete-saint', handleDeleteSaintClick);
+
 });
 
 /////////// END OF DOCUMENT.READY //////////
@@ -81,7 +84,7 @@ function handleNewChurchSubmit(evt) {
   //get saintID to build the correct URL for the AJAX POST
   var saintId = $modal.data('saintId');
 
-  //POST TO SERVER
+  //Post to Server and Back
   var churchPostToServerUrl = '/api/saints/'+ saintId + '/churches';
   console.log(churchPostToServerUrl);
 
@@ -89,20 +92,41 @@ function handleNewChurchSubmit(evt) {
      .success(function(church) {
        console.log('church', church);
 
-      //re-get the full saint and render on page
-      $.get('/api/saints/' + saintId).success(function(saint) {
-        $('[data-saint-id='+ saintId + ']').remove();
-        renderSaint(saint);
-       });
+       //re-get the full saint and render on page
+       $.get('/api/saints/' + saintId).success(function(saint) {
+         $('[data-saint-id='+ saintId + ']').remove();
+         renderSaint(saint);
+        });
 
-   //clear form
-   $churchNameField.val('');
-   $locationField.val('');
-   $urlField.val('');
+       //clear form
+       $churchNameField.val('');
+       $locationField.val('');
+       $urlField.val('');
 
-   //close modal
-   $modal.modal('hide');
+       //close modal
+       $modal.modal('hide');
+
  });
 }
 
 /////////////////////////////
+
+//DELETE A SAINT
+
+function handleDeleteSaintClick(evt) {
+  var saintId = $(this).parents('.saint').data('saint-id');
+  console.log("planning to delete saintId: ", saintId);
+
+  $.ajax({
+    method: 'DELETE',
+    url: ('/api/saints/' + saintId),
+    success:  handleDeleteSaintSuccess
+  });
+
+  //call success function
+  function handleDeleteSaintSuccess(data) {
+    var deletedSaintId = data._id;
+    console.log("removing this saint from the page:", deletedSaintId);
+    $('[data-saint-id=' + saintId + ']').remove();
+    }
+  }
