@@ -1,41 +1,4 @@
 
-/*hardcoded data*/
-
-// var sampleSaints = [];
-//
-// sampleSaints.push({
-//               name: "Joseph",
-//               patronSaintOf: "Fathers",
-//               feastDate: "March 19",
-//               birthplace: "Bethlehem",
-//               funFact: "He was a carpenter. He followed God's commands in handling the "+
-//               "situation with Mary and going to Jerusalem to have Jesus circumcised and " +
-//               "Mary purified after the birth of Jesus. We are told that " +
-//               "He took his family to Jerusalem every year for Passover.",
-//               imageUrl: "http://www.catholic.org/files/images/saints/stjoseph.jpg",
-//               dedicatedChurches : {
-//                 name: "St. Joseph Catholic Church",
-//                  location: "Fremont, CA",
-//                  url: "http://www.saintjosephmsj.org/"
-//               }
-//             });
-//
-// sampleSaints.push({
-//             name: "St. Rita of Cascia",
-//             patronSaintOf: "Hopeless Cases(Spain)",
-//             feastDate: "May 22",
-//             birthplace: "Roccaporena, Italy",
-//             funFact: "St. Rita is often credited as also being the unofficial patron saint" +
-//             "of baseball due to a reference made to her in the 2002 film The Rookie.",
-//             imageUrl: "http://www.catholictradition.org/Cascia/rita-5a.jpg",
-//             dedicatedChurches : {
-//               name: "Basilica di Santa Rita",
-//               location: "Cascia, Italy",
-//               url: "http://www.santaritadacascia.org/"
-//             }
-//           });
-//
-// /*end of hardcoded data*/
 
 $(document).ready(function() {
   console.log('app.js loaded!');
@@ -46,6 +9,10 @@ $(document).ready(function() {
       renderSaint(saint);
     });
   });
+
+
+/////////////////////////////
+
   /*this listens for a form submission and then
   serializes all input from the ADD SAINT and its DETAILS form */
   $('#saint-form form').on('submit', function(evt) {
@@ -61,7 +28,10 @@ $(document).ready(function() {
       $(this).trigger("reset");
     });
 
-//TO ADD ONE CHURCH and its DETAILS, front-end
+/////////////////////////////
+
+//TO ADD ONE CHURCH and its DETAILS
+
   //catches and handles the click event on a button that will add one church and its details
     $('#saints').on('click', '.add-church', function(evt) {
       console.log("add-church button has been clicked");
@@ -76,6 +46,8 @@ $(document).ready(function() {
     $('#saveChurch').on('click', handleNewChurchSubmit);
 });
 
+/////////// END OF DOCUMENT.READY //////////
+
 /* this function takes a single saint and renders it to the page */
 function renderSaint(saint) {
   console.log('rendering one:', saint);
@@ -85,8 +57,12 @@ function renderSaint(saint) {
   $('#saints').append(html);
 }
 
+
+/////////////////////////////
+
 //call this when the button on the modal is clicked
-//handle new church submit
+//HANDLE NEW CHURCH SUBMIT
+
 function handleNewChurchSubmit(evt) {
   evt.preventDefault();
   //define variables
@@ -107,8 +83,7 @@ function handleNewChurchSubmit(evt) {
 
   //POST TO SERVER
   var churchPostToServerUrl = '/api/saints/'+ saintId + '/churches';
-  console.log(churchPostToServerUrl); //SHOWING ON CHROME DEV RIGHT NOW!!!
-
+  console.log(churchPostToServerUrl);
 
   $.post(churchPostToServerUrl, dataToPost)
      .success(function(church) {
@@ -116,12 +91,10 @@ function handleNewChurchSubmit(evt) {
 
       //re-get the full saint and render on page
       $.get('/api/saints/' + saintId).success(function(saint) {
-        //remove old entry
         $('[data-saint-id='+ saintId + ']').remove();
-        //render a replacement
         renderSaint(saint);
        });
-   $(this).trigger("reset");  
+
    //clear form
    $churchNameField.val('');
    $locationField.val('');
@@ -131,3 +104,5 @@ function handleNewChurchSubmit(evt) {
    $modal.modal('hide');
  });
 }
+
+/////////////////////////////

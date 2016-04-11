@@ -12,7 +12,6 @@ function create(req, res) {
 
   // find the saint in your db where we will  put the new church// this is ok
   db.Saint.findById(req.params.saintId, function(err, foundSaint) {
-    // TODO: err handling
     if (err) {
       return console.log("error: ", err);
     }

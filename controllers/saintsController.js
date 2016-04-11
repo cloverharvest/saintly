@@ -99,8 +99,9 @@ function show(req, res) {
   // FILL ME IN !
 }
 
+//
 function destroy(req, res) {
-  // FILL ME IN !
+  //FILL ME in !
 }
 
 function update(req, res) {
