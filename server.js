@@ -46,7 +46,8 @@ app.get('/api/saints', controllers.saints.index);
 app.post('/api/saints', controllers.saints.create);
 
 //route for POST /api/saints/:saintId/churches, creates new dedicatedChurch via modal
-app.post('/api/saints/:saintId/churches', controllers.saintsChurches.create);
+app.post
+('/api/saints/:saintId/churches', controllers.saintsChurches.create);
 
 
 /**********

@@ -61,13 +61,14 @@ $(document).ready(function() {
       $(this).trigger("reset");
     });
 
-  //catches and handles the click event on a button that will add one church
+//TO ADD ONE CHURCH and its DETAILS, front-end
+  //catches and handles the click event on a button that will add one church and its details
     $('#saints').on('click', '.add-church', function(evt) {
       console.log("add-church button has been clicked");
 
-      var currentSaintId = $(this).closest('.saint').data('saint-id');//uniqued id for each saint NOT song
+      var currentSaintId = $(this).closest('.saint').data('saint-id');//uniqued id for each saint
       console.log('id', currentSaintId);
-      //"use this to keep track of which album the modal is referring to at any time"
+      //use this to keep track of which saint the modal is referring to at any time
       $('#churchModal').data('saint-id', currentSaintId);
       $('#churchModal').modal();  // display the modal!
     });
@@ -103,32 +104,30 @@ function handleNewChurchSubmit(evt) {
   console.log('DATA TO POST: ' , dataToPost);
   //get saintID to build the correct URL for the AJAX POST
   var saintId = $modal.data('saintId');
-  //console.log('retrieved churchName:', name, ' and location:', location, ' and url:', url, ' for saint w/ id:', saintId);
 
-  //post to server
+  //POST TO SERVER
   var churchPostToServerUrl = '/api/saints/'+ saintId + '/churches';
-  console.log(churchPostToServerUrl);
-  $.post(churchPostToServerUrl), dataToPost, onSuccessPostNewChurch
-    // $.error(function(err) {//resolve this..s3s5
-    // console.log('post to /api/saints/:saintId/churches resulted in error', error);
-  };
+  console.log(churchPostToServerUrl); //SHOWING ON CHROME DEV RIGHT NOW!!!
 
-  function onSuccessPostNewChurch(data) {
-    console.log('received data from post to /churches:', data);
-    //clear form
-    // $churchNameField.val('');
-    // $locationField.val('');
-    // $urlField.val('');
-    //
-    // //close the modal
-    // $modal.modal('hide');
-    // // update the correct saint to show the new church
-    // $.get('/api/saints/' + saintId, function(data) {
-    //   //remove the current instance of the saint from the page
-    //   ('[data-saint-id=' + saintId + ']').remove();
-    //   //re-render it with the new saint data (including churches)
-    //   renderSaint(data);
-    //   // console.log("log the results pending server setup:", data);//this is pending testing, remove once it works
-    // });
 
+  $.post(churchPostToServerUrl, dataToPost)
+     .success(function(church) {
+       console.log('church', church);
+
+      //re-get the full saint and render on page
+      $.get('/api/saints/' + saintId).success(function(saint) {
+        //remove old entry
+        $('[data-saint-id='+ saintId + ']').remove();
+        //render a replacement
+        renderSaint(saint);
+       });
+   $(this).trigger("reset");  
+   //clear form
+   $churchNameField.val('');
+   $locationField.val('');
+   $urlField.val('');
+
+   //close modal
+   $modal.modal('hide');
+ });
 }

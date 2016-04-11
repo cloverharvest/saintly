@@ -59,12 +59,13 @@ function create(req, res) {
   /* make a quick saint object before putting it into our create db call */
   var newSaint = {
     name: req.body.name,
-    patronSaintOf: req.body.patronSaint,
+    patronSaintOf: req.body.patronSaintOf,
     feastDate: req.body.feastDate,
     birthplace: req.body.birthPlace,
     funFact: req.body.funFact,
     imageUrl: req.body.imageUrl,
-  }
+  };
+
 
   /* make a dedicated Church object from the data we got from ajax */
   var newSaintChurch = new db.DedicatedChurch({
@@ -75,7 +76,9 @@ function create(req, res) {
 
   /* call db.Saint.create and pass in the newSaint object we just made */
   db.Saint.create(newSaint, function(err, saint) {
-    if (err) { console.log("create error: ", err); }
+    if (err) {
+      console.log("create error: ", err);
+    }
     //console.log("Sucess!!!!", saint);
 
     /* If we succeeded, then we push the dedicated church object into our new saint's dedicatedChurch array */
@@ -86,10 +89,9 @@ function create(req, res) {
       if (err) { console.log("create error: ", err); }
       //console.log('SUCCESSSS!!!', success);
 
-      /* Everything is sainly, we can now send our new saint back to the front end */
+      /* Everything is saintly, we can now send our new saint back to the front end */
       res.json(success);
-
-    })
+    });
   });
 }
 

@@ -64,9 +64,9 @@
 
             <!-- Text input-->
             <div class="form-group">
-              <label class="col-md-4 control-label" name="patronSaint">Patron Saint of:</label>
+              <label class="col-md-4 control-label" name="patronSaintOf">Patron Saint of:</label>
               <div class="col-md-4">
-              <input id="textinput" name="patronSaintOf" type="text" placeholder="Animals, Merchants and Ecology" class="form-control input-md">
+              <input id="patronSaintOf" name="patronSaintOf" type="text" placeholder="Animals, Merchants and Ecology" class="form-control input-md">
 
               </div>
             </div>
@@ -83,7 +83,7 @@
             <div class="form-group">
               <label class="col-md-4 control-label" name="birthPlace">Birthplace:</label>
               <div class="col-md-4">
-                <input id="birthplaceId" name="birthplace" type="text" placeholder="   Assisi, Italy">
+              <input id="birthPlace" name="birthPlace" type="text" placeholder="Assisi, Italy" class="form-control input-md">
               </div>
             </div>
 
@@ -146,7 +146,7 @@
          <!--handlebars template for one saint starts here -->
          <script id='saint-template' type='text/x-handlebars-template'>
           <!-- one saint -->
-          <div class="row saint" data-saint-id="{{_id}}"> <!--take note this _id is unique to each saint-->
+          <div class="row saint" data-saint-id="{{_id}}"> <!--take note, this _id is unique to each saint-->
 
             <div class="col-md-10 col-md-offset-1">
               <div class="panel panel-default">
