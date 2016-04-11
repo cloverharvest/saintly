@@ -67,7 +67,7 @@ function renderSaint(saint) {
 
 /////////////////////////////
 
-//EDIT A CHURCH ===> this is pending
+//EDIT A CHURCH ===> this is an additional feature to be worked on
 
 
 function handleChurchEditClick(evt) {

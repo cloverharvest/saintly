@@ -53,7 +53,7 @@ saintsList.push({
                 url: "http://www.santaritadacascia.org/"
               }
             });
-            
+
 saintsList.push({
               name: "Dominic",
               patronSaintOf: "Astronomers and Hopeful Mothers",
@@ -84,7 +84,69 @@ saintsList.push({
                   url: "http://www.stthereseparish.ws/"
                 }
               });
+
+saintsList.push({
+                name: "Nicholas",
+                patronSaintOf: "Bakers, pawnbrokers, and the falsely accused",
+                feastDate: "December 6",
+                birthplace: "Asia Minor",
+                funFact: "Also known as Nikolaos of Myra. He gave up his inheritance " +
+                "to save three girls who were to be sold as slaves.",
+                imageUrl: "http://www.catholictradition.org/Children/saint-nicholas6.jpg",
+                dedicatedChurches: {
+                  name: "St. Nicholas Church",
+                  location: "Los Altos, CA",
+                  url: "http://stnickcc.org/"
+                }
+              });
+
+saintsList.push({
+                name: "Michael the Archangel",
+                patronSaintOf: "Grocers, soldiers, doctors, mariners, paratroopers, police",
+                feastDate: "September 29",
+                birthplace: "",
+                funFact: "Michael the Archangel isn't a saint, in the " +
+                "literal sense, but rather he is an angel, and the leader of " +
+                "all angels and of the army of God. This is what the title "+
+                "Archangel means that he is above all the others in rank.",
+                imageUrl: "http://www.catholic.org/files/images/saints/stmichaelthearchangel.jpg",
+                dedicatedChurches: {
+                  name: "St. Michael the Archangel Catholic Church",
+                  location: "Cary, NC",
+                  url: "http://www.stmichaelcary.org/"
+                }
+              });
+
+// saintsList.push({
+//                 name: "",
+//                 patronSaintOf: "",
+//                 feastDate: "",
+//                 birthplace: "",
+//                 funFact: "",
+//                 imageUrl: "",
+//                 dedicatedChurches: {
+//                   name: "",
+//                   location: "",
+//                   url: ""
+//                   }
+//               });
 //
+// saintsList.push({
+//                 name: "",
+//                 patronSaintOf: "",
+//                 feastDate: "",
+//                 birthplace: "",
+//                 funFact: "",
+//                 imageUrl: "",
+//                 dedicatedChurches: {
+//                   name: "",
+//                   location: "",
+//                   url: ""
+//                 }
+//               });
+
+//
+
 // var sampleChurches = [];
 //
 // sampleChurches.push({ name: "St. Mary Magdalen Church",

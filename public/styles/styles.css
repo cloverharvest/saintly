@@ -1,16 +1,17 @@
 body {
   background-color: #ddc98f;
   font-family: Avenir;
+  font-weight: 600;
 }
 
 div.panel-body {
-  background-color: #AD885A;
+  background-color: #d35400;
 }
 .jumbotron {
   background-image: url(/images/background.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  /*background-color: #924430;*/
+
   color: #EEE;
 }
 .jumbotron .container {
