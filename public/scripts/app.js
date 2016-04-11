@@ -42,24 +42,38 @@ $(document).ready(function() {
       $('#churchModal').data('saint-id', currentSaintId);
       $('#churchModal').modal();  // display the modal!
     });
-    //save church modal save button
+    //save a new church
     $('#saveChurch').on('click', handleNewChurchSubmit);
+
+    //edit a church
+    $('#saints').on('click', '.edit-church', handleChurchEditClick);
+
     //delete a saint
     $('#saints').on('click', '.delete-saint', handleDeleteSaintClick);
+  });
 
-});
 
 /////////// END OF DOCUMENT.READY //////////
 
 /* this function takes a single saint and renders it to the page */
 function renderSaint(saint) {
-  console.log('rendering one:', saint);
+  //console.log('rendering one:', saint);
   var saintHtml = $('#saint-template').html();
   var saintsTemplate = Handlebars.compile(saintHtml);
   var html = saintsTemplate(saint);
   $('#saints').append(html);
 }
 
+
+/////////////////////////////
+
+//EDIT A CHURCH ===> this is pending
+
+
+function handleChurchEditClick(evt) {
+  var saintId = $(this).closest('.saint').data('saint-id');
+  console.log('edit saint', saintId);
+}
 
 /////////////////////////////
 
@@ -89,14 +103,8 @@ function handleNewChurchSubmit(evt) {
   console.log(churchPostToServerUrl);
 
   $.post(churchPostToServerUrl, dataToPost)
-     .success(function(church) {
-       console.log('church', church);
-
-       //re-get the full saint and render on page
-       $.get('/api/saints/' + saintId).success(function(saint) {
-         $('[data-saint-id='+ saintId + ']').remove();
-         renderSaint(saint);
-        });
+     .success(function(saint) {
+       console.log('church', saint);//it works fine  until here
 
        //clear form
        $churchNameField.val('');
@@ -106,7 +114,17 @@ function handleNewChurchSubmit(evt) {
        //close modal
        $modal.modal('hide');
 
- });
+       //removes old saint and re-renders saint with new church
+       $('[data-saint-id='+ saintId + ']').remove();
+
+       renderSaint(saint);//
+
+
+
+  }).error(function(err) {
+     console.log("error:", error);
+  });
+
 }
 
 /////////////////////////////

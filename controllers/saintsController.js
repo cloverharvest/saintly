@@ -106,7 +106,6 @@ function destroy(req, res) {
     if (err) {
       console.log('create error: ', err);
     }
-  
     res.json(foundSaint);
   });
 }
