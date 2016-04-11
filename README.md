@@ -2,7 +2,7 @@
 
 Saints are people who have lived their life as an example of holiness, simplicity and obedience to the Creator.
 
-This app is a saints builder designed to help children and adults build their own collection of information about their favorite saints.
+This an application to help children and adults build their own collection of information about their favorite saints.
 
 Link to heroku: https://rocky-fortress-73738.herokuapp.com/
 
@@ -12,8 +12,8 @@ Link to heroku: https://rocky-fortress-73738.herokuapp.com/
 * jQuery, Node.js, Express, Mongoose, MongoDB
 * Handlebars
 * API endpoints, HTTP Methods,  AJAX and JSON
-* Database modelling, reference vs embedded relationships
-* Heroku
+* Database modeling, reference vs embedded relationships
+* Heroku for deployment
 
 ## Existing Features
 
