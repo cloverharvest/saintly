@@ -39,7 +39,7 @@ saintsList.push({
             }
           });
 
-            saintsList.push({
+saintsList.push({
               name: "St. Rita of Cascia",
               patronSaintOf: "Hopeless Cases(Spain)",
               feastDate: "May 22",
@@ -53,6 +53,7 @@ saintsList.push({
                 url: "http://www.santaritadacascia.org/"
               }
             });
+            
 saintsList.push({
               name: "Dominic",
               patronSaintOf: "Astronomers and Hopeful Mothers",
@@ -62,11 +63,27 @@ saintsList.push({
               imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/24/The_Perugia_Altarpiece,_Side_Panel_Depicting_St._Dominic.jpg",
               dedicatedChurches : {
                 name: "St. Dominic Parish",
-                 location: "Benicia, CA",
-                 url: "http://www.stdombenicia.org/"
+                location: "Benicia, CA",
+                url: "http://www.stdombenicia.org/"
               }
             });
 
+saintsList.push({
+                name: "Therese of Lisieux",
+                patronSaintOf: "The Missions",
+                feastDate: "October 1",
+                birthplace: "Alencon, France",
+                funFact: "Therese was known as the Little Flower but she had a will of steel." +
+                " When the superior of the Carmelite convent refused to take Therese because " +
+                "she was so young, the formerly shy little girl went to the bishop. When " +
+                " the bishop also said no, she decided to go over his head, as well. ",
+                imageUrl: "http://www.catholic.org/files/images/saints/therese.jpg",
+                dedicatedChurches : {
+                  name: "St.Therese of Lisieux Parish",
+                  location: "Shelby Township, MI",
+                  url: "http://www.stthereseparish.ws/"
+                }
+              });
 //
 // var sampleChurches = [];
 //
