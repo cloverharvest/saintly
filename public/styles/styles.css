@@ -23,3 +23,7 @@ div.panel-body {
   vertical-align: baseline;
   margin-right: 12px;
 }
+
+.hidden {
+  display: none;
+}
