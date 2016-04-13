@@ -2,7 +2,7 @@
 
 Saints are people who have lived their life as an example of holiness, simplicity and obedience to the Creator.
 
-This an application to help children and adults build their own collection of information about their favorite saints.
+This is an application to help children and adults build their own collection of information about their favorite saints.
 
 Link to heroku: https://rocky-fortress-73738.herokuapp.com/
 
