@@ -1,7 +1,7 @@
 var db = require('../models');
 
 
-// POST '/api/saints/:saintId/churches', to create a new dedicated church   via popup modal
+// POST '/api/saints/:saintId/churches', to create a new dedicated church via popup modal
 function create(req, res) {
   // extract the new church data from req and make a dedicatedChurch object out of it.
   var newDedicatedChurch = new db.DedicatedChurch({

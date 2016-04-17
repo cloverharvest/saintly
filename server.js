@@ -48,6 +48,9 @@ app.post('/api/saints', controllers.saints.create);
 //route for POST /api/saints/:saintId/churches, creates new dedicatedChurch via modal
 app.post('/api/saints/:saintId/churches', controllers.saintsChurches.create);
 
+//route for PUT /api/, updates particular properties of the Saint
+app.put('/api/saints/:saintId', controllers.saints.update);
+
 //route for DELETE /api/saints/:saintId, deletes a saint
 app.delete('/api/saints/:saintId', controllers.saints.destroy);
 

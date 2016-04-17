@@ -24,6 +24,11 @@ div.panel-body {
   margin-right: 12px;
 }
 
+/*working on this, move or pad image on their left side at full screen*/
+#imageUrl {
+  border-left: : 3px
+}
+
 .hidden {
   display: none;
 }

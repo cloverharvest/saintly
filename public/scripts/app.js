@@ -17,7 +17,7 @@ $(document).ready(function() {
   $('#saint-form form').on('submit', function(evt) {
       evt.preventDefault();
       var formData = $(this).serialize();
-      //app.js got data from front end
+      //app.js got data from the view
       console.log('this is serialized', formData);
 
       $.post('/api/saints', formData, function(saint) {
@@ -49,10 +49,8 @@ $(document).ready(function() {
     //edit a saint
     $('#saints').on('click', '.edit-saint', handleSaintEditClick);
     //save the changes to a saint
-    $('#saints').on('click', '.edit-saint', handleSaveSaintChangesClick);
-
-
-  });
+    $('#saints').on('click', '.save-saint', handleSaveSaintChangesClick);
+});
 
 
 /////////// END OF DOCUMENT.READY //////////
@@ -63,52 +61,75 @@ function renderSaint(saint) {
   var saintHtml = $('#saint-template').html();
   var saintsTemplate = Handlebars.compile(saintHtml);
   var html = saintsTemplate(saint);
-  $('#saints').append(html);
+  $('#saints').prepend(html);
 }
 
 
 /////////////////////////////
 
-//EDIT A SAINT'S FUNFACT AND PATRON SAINT OF ===> this is an additional feature to be worked on
+//EDIT A SAINT'S FUNFACT AND PATRON SAINT OF
 
-//when the edit button for the a saint is clicked this function is executed
+//when the edit button for the saint is clicked this function is executed
 function handleSaintEditClick(evt) {
-  // var saintId = $(this).closest('.saint').data('saint-id');
+
+  //targeting what row and what id will be edited
   var $saintRow = $(this).closest('.saint');
-  console.log("$saintRow: ", $saintRow);
+  console.log("edit saint at this row: ", $saintRow);
   var saintId = $saintRow.data('saint-id');
-  console.log("edit saint: ", saintId);
+  console.log("edit saint at: ", saintId);
 
 
-//show the save changes button
-$saintRow.find('.save-saint').toggleClass('hidden');
-//then hide the edit button
-$saintRow.find('.edit-saint').toggleClass('hidden');
+  //show the save changes button
+  $saintRow.find('.save-saint').toggleClass('hidden');
+  //then hide the edit button
+  $saintRow.find('.edit-saint').toggleClass('hidden');
 
-//opens the patron-name field and allows user to replace it  with new data
-var saintPatronOf = $saintRow.find('span.patron-name').text();
-$saintRow.find('span.patron-name').html('<input class="patron-name" value="' + saintPatronOf + '"></input>');
+  //opens the patron-name field and gets the value in it, .text() is a getter, accepts no arguments and returns a "string"
+  var saintPatronOf = $saintRow.find('span.patron-name').text();
+  console.log("this is the patron name value to be changed in: ", saintPatronOf);
 
-//opens the fun fact details field and allows user to replace it with a new data
-var saintFunFact = $saintRow.find('span.funfact-details').text();
-$saintRow.find('span.funfact-details').html('<input class="funfact-details" value="' + saintFunFact + '"></input>');
+ //this line of code finds the patron name field and sets the contents of the value
+  $saintRow.find('span.patron-name').html('<input class="edit-patron-name" value="' + saintPatronOf + '"></input>');
+  console.log("what's the content of the patron name");
 
+  //opens the fun fact details field and gets the value in it
+  var saintFunFact = $saintRow.find('span.funfact-details').text();
+  console.log(saintFunFact);
+  $saintRow.find('span.funfact-details').html('<input class="edit-funfact-details" value="' + saintFunFact + '"></input>');
 }
 
 //after changes/edits have been made this save function is run
+
 function handleSaveSaintChangesClick(evt) {
+  evt.preventDefault();
   var saintId = $(this).parents('.saint').data('saint-id');
   console.log("saintId: ", saintId);
 
   var $saintRow = $('[data-saint-id=' + saintId + ']');
   console.log("$saintRow: ", $saintRow);
 
-  //save the new input in the patron-name field
+  var data;
 
-  //save the new input in the fun-fact field
+  $.ajax({
+    method: 'PUT',
+    url: '/api/saints/' + saintId,
+    data: {
+      patronSaintOf: $saintRow.find('.edit-patron-name').val(),
+      funFact: $saintRow.find('.edit-funfact-details').val()
+    },
+    success: handleSaintUpdatesSuccess //bec there is max of two updates(funfact/patronSaintOf) possible in this functionality
+  });
+
+   //call success function
+   function handleSaintUpdatesSuccess(data) {
+     console.log('response from server update: ', data);
+
+     var saintId = data._id;
+     $('[data-saint-id=' + saintId + ']').remove();
+     renderSaint(data);
+   }
 
 }
-
 /////////////////////////////
 
 //call this when the button on the modal is clicked
@@ -133,7 +154,7 @@ function handleNewChurchSubmit(evt) {
   var saintId = $modal.data('saintId');
 
   //Post to Server and Back
-  var churchPostToServerUrl = '/api/saints/'+ saintId + '/churches';
+  var churchPostToServerUrl = '/api/saints/'+ saintId + '/churches'; //the path
   console.log(churchPostToServerUrl);
 
   $.post(churchPostToServerUrl, dataToPost)
@@ -152,8 +173,6 @@ function handleNewChurchSubmit(evt) {
        $('[data-saint-id='+ saintId + ']').remove();
 
        renderSaint(saint);//
-
-
 
   }).error(function(err) {
      console.log("error:", error);
