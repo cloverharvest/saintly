@@ -11,21 +11,22 @@ Link to heroku: https://rocky-fortress-73738.herokuapp.com/
 * HTML, CSS and JavaScript
 * jQuery, Node.js, Express, Mongoose, MongoDB
 * Handlebars
-* API endpoints, HTTP Methods,  AJAX and JSON
+* API endpoints, HTTP Methods,  AJAX, JSON, and Full-CRUD
 * Database modeling, reference vs embedded relationships
 * Heroku for deployment
 
 ## Existing Features
 
-* Add saints and their attributes (name, image, birthplace, fun fact, patronage, dedicated churches
+* Add saints and their properties (name, image, birthplace, fun fact, patronage, dedicated churches
 * Add churches dedicated to the saints (name, location, url)
-* Delete saints and their attributes
+* Updates/edits fun facts and patronages
+* Delete saints and their properties
 * Save all on a database
+* Responsive web design
 
 ## Planned Features
 
-* Update all attributes
-* Search objects and its attributes
+* Search saints and their properties
 * Assign users and store their individual collections
 
 ## Screenshot(s)
