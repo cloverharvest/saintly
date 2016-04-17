@@ -4,6 +4,8 @@
 
 var db = require('../models');
 
+///////////////////
+
 // GET /api/saints, get all saints from db
 function index(req, res) {
   db.Saint.find({}, function (err, saints) {
@@ -15,6 +17,8 @@ function index(req, res) {
     res.json(saints);
   });
 }
+
+///////////////////
 
 //POST /api/saints, get data from form submitted
 function create(req, res) {
@@ -49,7 +53,6 @@ function create(req, res) {
     /* Since we have changed our new Saint by adding a dedicatedChurch object to their array of dedicatedChurches, we need to save the newSaint. */
     saint.save(function(err, success) {
       if (err) { console.log("create error: ", err); }
-      //console.log('SUCCESSSS!!!', success);
 
       /* Everything is saintly, we can now send our new saint back to the front end */
       res.json(success);
@@ -57,9 +60,7 @@ function create(req, res) {
   });
 }
 
-function show(req, res) {
-  //don't have this
-}
+///////////////////
 
 //DELETE a saint in the database
 function destroy(req, res) {

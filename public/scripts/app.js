@@ -55,9 +55,12 @@ $(document).ready(function() {
 
 /////////// END OF DOCUMENT.READY //////////
 
+/////////////////////////////
+
+//RENDER SAINT FUNCTION
+
 /* this function takes a single saint and renders it to the page */
 function renderSaint(saint) {
-  //console.log('rendering one:', saint);
   var saintHtml = $('#saint-template').html();
   var saintsTemplate = Handlebars.compile(saintHtml);
   var html = saintsTemplate(saint);
@@ -67,7 +70,7 @@ function renderSaint(saint) {
 
 /////////////////////////////
 
-//EDIT A SAINT'S FUNFACT AND PATRON SAINT OF
+//EDIT AND SAVE A SAINT'S FUNFACT AND PATRON SAINT OF
 
 //when the edit button for the saint is clicked this function is executed
 function handleSaintEditClick(evt) {
@@ -86,15 +89,12 @@ function handleSaintEditClick(evt) {
 
   //opens the patron-name field and gets the value in it, .text() is a getter, accepts no arguments and returns a "string"
   var saintPatronOf = $saintRow.find('span.patron-name').text();
-  console.log("this is the patron name value to be changed in: ", saintPatronOf);
 
  //this line of code finds the patron name field and sets the contents of the value
   $saintRow.find('span.patron-name').html('<input class="edit-patron-name" value="' + saintPatronOf + '"></input>');
-  console.log("what's the content of the patron name");
 
   //opens the fun fact details field and gets the value in it
   var saintFunFact = $saintRow.find('span.funfact-details').text();
-  console.log(saintFunFact);
   $saintRow.find('span.funfact-details').html('<input class="edit-funfact-details" value="' + saintFunFact + '"></input>');
 }
 
