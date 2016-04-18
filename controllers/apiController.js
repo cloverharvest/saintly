@@ -5,6 +5,7 @@ function index(req, res) {
     documentation_url: "#",
     base_url: "#",
     endpoints: [
+      /* TODO: Add all your great routes to this list! */
       {method: "GET", path: "/api", description: "Describes available endpoints"}
     ]
   });

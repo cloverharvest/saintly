@@ -10,6 +10,7 @@ function create(req, res) {
     url: req.body.url
   });
 
+  /* TODO: exract your saintId from your params and store it in a variable for easy code reading -jc */
   // find the saint in your db where we will  put the new church// this is ok
   db.Saint.findById(req.params.saintId, function(err, foundSaint) {
     if (err) {
@@ -25,10 +26,13 @@ function create(req, res) {
       }
       console.log('newDedicatedChurch created: ', savedSaint.dedicatedChurches);
       // send our newly changed saint back to the front end :)
+      /* TODO: send the savedSaint (with the new dedicatedChurch object) instead of the foundSaint (which is old and outdated) -jc */
       res.json(foundSaint);
     });
   });
 }
+
+/* TODO: can you add a destroy to remove churches? -jc */
 
 module.exports = {
   create: create
