@@ -1,5 +1,7 @@
 # Saintly App
 
+<a href="https://codeclimate.com/github/cloverharvest/saintly"><img src="https://codeclimate.com/github/cloverharvest/saintly/badges/gpa.svg" /></a>
+
 Saints are people who have lived their life as an example of holiness, simplicity and obedience to the Creator.
 
 This is an application to help children and adults build their own collection of information about their favorite saints.
