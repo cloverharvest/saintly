@@ -61,6 +61,7 @@ $(document).ready(function() {
 
 /* this function takes a single saint and renders it to the page */
 function renderSaint(saint) {
+  /* TODO: consider moving the sainHTML and saintsTemplate variable definitions to your document ready code block.  That way they are only defined once, where right now they are being defined every time you call renderSaint() -jc */
   var saintHtml = $('#saint-template').html();
   var saintsTemplate = Handlebars.compile(saintHtml);
   var html = saintsTemplate(saint);
@@ -134,7 +135,7 @@ function handleSaveSaintChangesClick(evt) {
 
 //call this when the button on the modal is clicked
 //HANDLE NEW CHURCH SUBMIT
-
+/* TODO: GREAT WORK! THIS WAS NOT AN EASY TASK! NICE USE OF MODALS, SELECTORS, AND A CLEAN REUSABLE INTERFACE -jc */
 function handleNewChurchSubmit(evt) {
   evt.preventDefault();
   //define variables
@@ -144,6 +145,7 @@ function handleNewChurchSubmit(evt) {
   var $urlField = $modal.find('#url');
 
   //get data from modal fields
+  /* TODO: you can further drill this data up in your $churchNameField, $locaitonField, and $urlField definitions (i.e. $modal.find('#churchName').val() ) -jc */
   var dataToPost = {
     name: $churchNameField.val(),
     location: $locationField.val(),

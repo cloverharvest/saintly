@@ -18,6 +18,9 @@ function index(req, res) {
   });
 }
 
+
+/* TODO: I would love to see a show route for your saints. I known it is slightly redundant, but it is good practice to be able to demonstrate all of hte CRUD actions -jc */
+
 ///////////////////
 
 //POST /api/saints, get data from form submitted
@@ -76,6 +79,11 @@ function destroy(req, res) {
 //UPDATE/edit properties of a saint
 function update(req, res) {
 
+  /* TODO: try to keep req.body attributes out of your actual database callbacks by extracting them to a variable. Example:
+      var newPatroSaintOf  = req.body.patronSaintOf;
+      var newFunFact = req.body.funFact;
+    This will make your code easier to read. -jc
+  */
   console.log(req.body);
   db.Saint.findById(req.params.saintId, function(err, foundSaint) {
     if(err) {
